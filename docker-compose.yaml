@@ -3,16 +3,16 @@ services:
     image: 'redislabs/redismod'
     ports:
       - '6379:6379'
-  web1:
+  app1:
     restart: on-failure
-    build: ./web
-    hostname: web1
+    build: ./app
+    hostname: app1
     ports:
       - '81:5000'
-  web2:
+  app2:
     restart: on-failure
-    build: ./web
-    hostname: web2
+    build: ./app
+    hostname: app2
     ports:
       - '82:5000'
   nginx:
@@ -20,5 +20,5 @@ services:
     ports:
     - '80:80'
     depends_on:
-    - web1
-    - web2
+    - app1
+    - app2
