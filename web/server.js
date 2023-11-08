@@ -2,7 +2,6 @@ const os = require('os');
 const express = require('express');
 const app = express();
 const redis = require('redis');
-const player = require('play-sound');
 
 const redisClient = redis.createClient({
   host: 'redis',
